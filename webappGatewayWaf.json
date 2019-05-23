@@ -113,6 +113,7 @@
   },
   "variables": {
     "applicationGatewayName": "applicationGateway1",
+    "applicationGatewayProbeName": "appGatewayBackendHttpSettingsProbe",
     "publicIPAddressName": "publicIp1",
     "virtualNetworkName": "virtualNetwork1",
     "subnetName": "appGatewaySubnet",
@@ -220,7 +221,10 @@
               "Protocol": "Http",
               "CookieBasedAffinity": "Disabled",
               "pickHostNameFromBackendAddress": true,
-              "requestTimeout": 30
+              "requestTimeout": 30,
+              "probe": {
+                  "id": "[concat(resourceId('Microsoft.Network/applicationGateways', variables('applicationGatewayName')), '/probes/',variables('applicationGatewayProbeName') )]"
+              }
             }
           }
         ],
@@ -255,6 +259,22 @@
               }
             }
           }
+        ],
+        "probes": [
+                    {
+                        "name": "variables('applicationGatewayProbeName')",
+                        "properties": {
+                            "protocol": "Http",
+                            "path": "/",
+                            "interval": 30,
+                            "timeout": 30,
+                            "unhealthyThreshold": 3,
+                            "pickHostNameFromBackendHttpSettings": true,
+                            "minServers": 0,
+                            "match": {}
+                        },
+                        "type": "Microsoft.Network/applicationGateways/probes"
+                    }
         ],
         "webApplicationFirewallConfiguration": {
           "enabled": "[parameters('wafEnabled')]",
