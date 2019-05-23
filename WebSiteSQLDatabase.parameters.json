@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "projectCode": {
+      "value": "khanradmin"
+    },
+    "requestorName": {
+      "value": "khanradmin"
+    },
+    "databaseName": {
+      "value": "rkdatabase1"
+    },
+    "sqlPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/rk-bkup-infr-rg101/providers/Microsoft.KeyVault/vaults/rkkeyvault2"
+        },
+        "secretName": "sqlpassword"
+      }
+    },
+    "sqllogin": {
+      "value": "svc_sql"
+    },
+
+    "sqlserverName1": {
+      "value": "rkkwebsqlsrv"
+    },
+    "webappName": {
+      "value": "rk3kWeb"
+    },
+    "hostingPlanName": {
+      "value": "webapphostingplan1"
+    },
+    "appInsightName": {
+      "value": "rkWeb-AppInsight"
+    },
+    "appgatewayinstance": {
+      "value": true
+    }
+  }
+}
