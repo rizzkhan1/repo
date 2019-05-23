@@ -223,7 +223,7 @@
               "pickHostNameFromBackendAddress": true,
               "requestTimeout": 30,
               "probe": {
-                   "id": "[concat(resourceId('Microsoft.Network/applicationGateways/probes', variables('applicationGatewayName'), variables('applicationGatewayProbeName')))]"
+                   "id": "[resourceId('Microsoft.Network/applicationGateways/probes/', variables('applicationGatewayName'), variables('applicationGatewayProbeName'))]"
               }
             }
           }
