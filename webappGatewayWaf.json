@@ -113,7 +113,7 @@
   },
   "variables": {
     "applicationGatewayName": "applicationgateway",
-    "applicationGatewayProbeName": "httphealthprobe",
+    "applicationGatewayProbeName": "httphealthprobe9090901192",
     "publicIPAddressName": "publicIp1",
     "virtualNetworkName": "virtualNetwork1",
     "subnetName": "appGatewaySubnet",
