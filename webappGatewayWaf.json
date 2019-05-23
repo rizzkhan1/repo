@@ -113,7 +113,7 @@
   },
   "variables": {
     "applicationGatewayName": "applicationgateway",
-    "applicationGatewayProbeName": "httphealthprobe9090901192",
+    "applicationGatewayProbeName": "httphealthprobe",
     "publicIPAddressName": "publicIp1",
     "virtualNetworkName": "virtualNetwork1",
     "subnetName": "appGatewaySubnet",
@@ -223,7 +223,7 @@
               "pickHostNameFromBackendAddress": true,
               "requestTimeout": 30,
               "probe": {
-                  "id": "[concat(resourceId('Microsoft.Network/applicationGateways', variables('applicationGatewayName')), '/probes/appGatewayBackendHttpSettings8444edd2-2bfd-4bd5-b17f-ea2e6415c036')]"
+                   "id": "[concat(resourceId('Microsoft.Network/applicationGateways/probes', variables('applicationGatewayName'), variables('applicationGatewayProbeName')))]"
               }
             }
           }
@@ -262,7 +262,7 @@
         ],
         "probes": [
                     {
-                        "name": "appGatewayBackendHttpSettings8444edd2-2bfd-4bd5-b17f-ea2e6415c036",
+                        "name": "variables('applicationGatewayProbeName')",
                         "properties": {
                             "protocol": "Http",
                             "path": "/",
