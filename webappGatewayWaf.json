@@ -218,7 +218,9 @@
             "properties": {
               "Port": 80,
               "Protocol": "Http",
-              "CookieBasedAffinity": "Disabled"
+              "CookieBasedAffinity": "Disabled",
+              "pickHostNameFromBackendAddress": true,
+              "requestTimeout": 30
             }
           }
         ],
