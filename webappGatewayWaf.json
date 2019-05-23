@@ -223,7 +223,7 @@
               "pickHostNameFromBackendAddress": true,
               "requestTimeout": 30,
               "probe": {
-                  "id": "[concat(resourceId('Microsoft.Network/applicationGateways', variables('applicationGatewayName')), '/probes/',variables('applicationGatewayProbeName') )]"
+                  "id": "[concat(resourceId('Microsoft.Network/applicationGateways', variables('applicationGatewayName')), '/probes/appGatewayBackendHttpSettings8444edd2-2bfd-4bd5-b17f-ea2e6415c036')]"
               }
             }
           }
@@ -262,7 +262,7 @@
         ],
         "probes": [
                     {
-                        "name": "variables('applicationGatewayProbeName')",
+                        "name": "appGatewayBackendHttpSettings8444edd2-2bfd-4bd5-b17f-ea2e6415c036",
                         "properties": {
                             "protocol": "Http",
                             "path": "/",
