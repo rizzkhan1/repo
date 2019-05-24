@@ -14,7 +14,7 @@
     "sqlPassword": {
       "reference": {
         "keyVault": {
-          "id": "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/rk-bkup-infr-rg101/providers/Microsoft.KeyVault/vaults/rkkeyvault2"
+          "id": "/subscriptions/e1697776-3464-4d07-9ae5-52b39a1ad81d/resourceGroups/rk-bkup-infr-rg101/providers/Microsoft.KeyVault/vaults/rkkeyvault2"
         },
         "secretName": "sqlpassword"
       }
