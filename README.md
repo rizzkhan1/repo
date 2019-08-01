@@ -1,5 +1,4 @@
-I started writing ARM templates for a basic single webapp with an Azure SQL DB in the backend (to demonstrate my ARM template skills) but felt that the solution lacks scalability, resiliency, security and doesn't do justice as I have been working on ARM templates for few years but not showing off some of the key operations that come out of the box i.e iterations, conditions and nested templates.
-So I started expanding my solution and half a day later we have:
+This solution is comprised of:
 
 3 x WebApps: Deployed multiple instances of webapps using Copy operation. Also linked the webapps with the Azure SQL DB by specifying the connection strings as a nested property. Application insight is enabled on all three webapps to understand the performance and usage.
  
