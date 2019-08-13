@@ -53,7 +53,8 @@
   "variables": {
     "frontdoorLocation": "global",
     "wafPolicyLocation": "global",
-    "wafpolicyref": "[resourceId('Microsoft.Network/FrontDoorWebApplicationFirewallPolicies', parameters('wafPolicyName'))]"
+    "wafpolicyref": "[resourceId('Microsoft.Network/FrontDoorWebApplicationFirewallPolicies', parameters('wafPolicyName'))]",
+    "deploymentbaseurl": "https://raw.githubusercontent.com/rizzkhan1/repo/master/"
   },
   "resources": [
     {
@@ -137,7 +138,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[concat(variables('deploymentUrlBase'), 'app-service-logs.json')]",
+          "uri": "[concat(variables('deploymentbaseurl'), 'front-door-backend-service.json')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
