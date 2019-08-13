@@ -174,7 +174,8 @@
           "@odata.type": "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
           "forwardingProtocol": "MatchRequest",
           "backendPool": {
-            "id": "[resourceId('Microsoft.Network/frontDoors/backendPools', parameters('frontDoorName'), concat(parameters('frontDoorName'),'-','backendPool'))]"
+            "id": "[reference('backendPools', '2017-05-10').outputs.resourceID.value]"
+            
           }
         }
       },

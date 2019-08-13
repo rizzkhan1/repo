@@ -45,5 +45,11 @@
                 }
             }
         }
-    ]
+    ],
+    "outputs": {
+        "resourceID": {
+          "type": "string",
+          "value": "[resourceId('Microsoft.Network/frontDoors/backendPools', parameters('frontDoorName'), concat(parameters('frontDoorName'),'-','backendPool'))]"
+        }
+      }
 }
