@@ -1,0 +1,49 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "frontDoorName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the frontdoor resource."
+            }
+        },
+        "backendAppServiceName": {
+            "type": "string",
+            "metadata": {
+                "description": "The address of the backend app services."
+            }
+        }
+        
+    },
+    "variables": {
+        "frontdoorLocation": "global"
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Network/frontdoors/backendPools",
+            "name": "[concat(parameters('frontDoorName'),'-','backendPool')]",
+            "location": "[variables('frontdoorLocation')]",
+            "properties": {
+                "backends": [
+                    {
+                        "address": "[parameters('backendAppServiceName')]",
+                        "enabledState": "Enabled",
+                        "httpPort": 80,
+                        "httpsPort": 443,
+                        "priority": 1,
+                        "weight": 50,
+                        "backendHostHeader": "[parameters('backendAppServiceName')]"
+                    }
+                ],
+                "loadBalancingSettings": {
+                    "id": "[resourceId('Microsoft.Network/frontDoors/loadBalancingSettings', parameters('frontDoorName'), concat(parameters('frontDoorName'),'-','loadBalancingSettings'))]"
+                },
+                "healthProbeSettings": {
+                    "id": "[resourceId('Microsoft.Network/frontDoors/healthProbeSettings', parameters('frontDoorName'), concat(parameters('frontDoorName'),'-','healthProbeSettings'))]"
+                }
+            }
+        }
+    ]
+}
